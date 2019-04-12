@@ -30,7 +30,8 @@ body {
   .conversation-wrapper {
     background: #f9f9f9;
     padding: 25px;
-    min-height: 500px;
+    height: 500px;
+    overflow-y: scroll;
   }
   
   .message-sent, .message-received {

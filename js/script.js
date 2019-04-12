@@ -7,6 +7,7 @@
 
 
 const elChat = document.getElementById('chat');
+const elCompose = document.getElementById('compose');
 
 const iAm = 'RP';
 const messages = [ 
@@ -16,6 +17,18 @@ const messages = [
   {text: "Nothing. Chillin.", time: `2:10PM`, who:`RP`} 
 ];
 
+
+elCompose.addEventListener('submit', event => {
+  event.preventDefault();
+
+  var newText = elCompose.newMsg.value;
+  messages.push( {text: newText, time: `2:21PM`, who:`RP` } );
+
+  elCompose.reset();
+
+  printAllMessages();
+
+});
 
 
 const aMessage = (msg) => {
@@ -33,12 +46,16 @@ const aMessage = (msg) => {
         <div class="time">${msg.time}</div>
       </div>
     </div>`;
+
+};
+
+
+const printAllMessages = () => {
+  elChat.innerHTML = messages.map( aMessage ).join('');
 }
 
 
-elChat.innerHTML += messages.map( aMessage ).join('');
-
-
+printAllMessages();
 
 
 
